@@ -23,7 +23,7 @@ function transform(arr) {
     if (arr[i] === '--discard-next') {
       i += 1;
     } else if (arr[i] === '--discard-prev') {
-      if (outputArr.length > 0 && arr[i - 1] !== '--discard-next') {
+      if (arr[i - 2] !== '--discard-next') {
         outputArr.pop();
       }
     } else if (arr[i] === '--double-next') {
@@ -31,7 +31,7 @@ function transform(arr) {
         outputArr.push(arr[i + 1]);
       }
     } else if (arr[i] === '--double-prev') {
-      if (i > 0 && arr[i - 1] !== '--discard-next') {
+      if (i > 0 && arr[i - 2] !== '--discard-next') {
         outputArr.push(arr[i - 1]);
       }
     } else {
